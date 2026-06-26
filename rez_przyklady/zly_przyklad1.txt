@@ -1,0 +1,4 @@
+~Cat(x) | Animal(x)
+~Dog(y) | Animal(y)
+Cat(puszek)
+~Dog(puszek)

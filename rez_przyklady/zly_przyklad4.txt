@@ -1,0 +1,3 @@
+~Married(x, y) | Married(y, x)
+Married(jan, anna)
+~Married(jan, piotr)

@@ -1,0 +1,5 @@
+# KB: forall x  P(x) -> P(f(x)),  oraz  P(a)
+# Cel: P(f(f(a)))   --  dodany ponizej jako zanegowany ~P(f(f(a)))
+~P(x) | P(f(x))
+P(a)
+~P(f(f(a)))          # zanegowany cel

@@ -1,0 +1,5 @@
+~Pompeian(x) | Roman(x)
+~Roman(y) | LoyalTo(y, caesar) | Hate(y, caesar)
+Pompeian(marcus)
+~Hate(marcus, caesar)
+~LoyalTo(marcus, caesar)

@@ -1,0 +1,72 @@
+assoc_comm(+).
+op(500, xfy, +).
+
+assign(max_weight, 55).
+assign(max_mem, 80000).
+assign(report_given, 1000).
+
+set(para_pairs). clear(print_given).
+
+set(basic_paramod).
+assign(pick_given_ratio, 1).
+assign(ac_superset_limit, 0).
+
+assign(max_proofs, 1).
+
+end_of_commands.
+
+list(usable).
+
+% ---- Ścieżka dowodu McCune'a --------------------------------
+% (cl 7 = aksjomat Robbinsa, jest w list(sos))
+
+% cl 10  [para(7,7)]
+n(n(n(x+y)+n(x)+y)+y) = n(x+y).
+
+% cl 11  [para(7,7)]
+n(n(n(n(x)+y)+x+y)+y) = n(n(x)+y).
+
+% cl 29  [para(11,7)]
+n(n(n(n(x)+y)+x+y+y)+n(n(x)+y)) = y.
+
+% cl 54  [para(29,7)]
+n(n(n(n(n(x)+y)+x+y+y)+n(n(x)+y)+z)+n(y+z)) = z.
+% DO TEGO MIEJSCA Prover9 JESZCZE DAWAŁ RADĘ, POTEM NAWET PO GODZINIE NIC
+
+
+% cl 217 [para(54,7)]
+n(n(n(n(n(x)+y)+x+y+y)+n(n(x)+y)+n(y+z)+z)+z) = n(y+z).
+
+% cl 674 [para(217,7)]
+n(n(n(n(n(n(x)+y)+x+y+y)+n(n(x)+y)+n(y+z)+z)+z+u)+n(n(y+z)+u)) = u.
+
+% cl 6736 [para(10,674)]
+n(n(n(n(x+x+x)+x)+n(x+x+x))+n(n(n(x+x+x)+x)+x+x+x+x+x)) = n(n(x+x+x)+x).
+
+% cl 8855 [para(6736,7), demod([54]), flip(1)]
+% zakomentowałem poniższe klauzule, aby program sam je znalazł
+%n(n(n(x+x+x)+x)+x+x+x+x+x) = n(x+x+x).
+
+% cl 8865 [para(8855,7)]
+%n(n(n(n(x+x+x)+x)+n(x+x+x)+x+x)+n(x+x+x)) = n(n(x+x+x)+x)+x+x.
+
+% cl 8866 [para(8855,7), demod([11])]
+%n(n(n(x+x+x)+x)+n(x+x+x)) = x.
+
+% cl 8870 [para(8866,7)]  — użyta jako demodulator przy cl 8871
+%n(n(n(n(x+x+x)+x)+n(x+x+x)+y)+n(x+y)) = y.
+
+% cl 8871 [back_demod(8865), demod([8870]), flip(1)]
+% komentarz w tej klauzuli, aby program sam ją znalazł
+%n(n(x+x+x)+x)+x+x = x+x.
+
+end_of_list.
+
+list(sos).
+n(n(n(y) + x) + n(x + y)) = x.      % aksjomat Robbinsa
+end_of_list.
+
+list(passive).
+junk.
+-(n(x+y) = n(x)). % negacja drugiego warunku Winkera, jeżeli wyjdzie sprzeczność z Robbinsem to algebra jest Boole'a
+end_of_list.

@@ -1,0 +1,4 @@
+~Father(x, y) | ~Father(y, z) | Grandfather(x, z)
+Father(jan, piotr)
+Father(piotr, pawel)
+~Grandfather(jan, pawel)
