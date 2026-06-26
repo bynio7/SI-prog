@@ -1,5 +1,10 @@
 # Sztuczna inteligencja - zadania programistyczne
 
+Stworzyłem repozytorium na githubie dla wygody:
+```
+https://github.com/bynio7/SI-prog
+```
+
 ### zadanie 15 c) z listy 5
 Prover9 miał olbrzymie problemy z wyprowadzeniem c + d = c, nawet pomimo użycia podpowiedzi w postaci klauzul z dowodu McCune'a
 
