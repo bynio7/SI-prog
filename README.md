@@ -68,7 +68,7 @@ skrypt w pythonie `rezolucja.py`
 
 brak zewnętrznych bibliotek, zbiór klauzul podaje się jako plik tekstowy (zgodnie z wymaganiami)
 ```
-python3 rezolucja.py
+python3 rezolucja.py klauzule.txt
 ```
 
 W repozytorium są również różne przykłady, również te pokazujące ograniczenia programu np.:
